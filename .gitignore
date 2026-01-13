@@ -1,0 +1,27 @@
+# ===== ENV / SECRETS =====
+.env
+backend/.env
+frontend/.env
+
+# ===== PYTHON =====
+backend/.venv/
+backend/__pycache__/
+backend/**/*.pyc
+
+# ===== DATABASE =====
+backend/*.db
+backend/*.sqlite
+backend/*.sqlite3
+
+# ===== NODE / NEXT =====
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+
+# ===== OS =====
+.DS_Store
+
+# ===== LOGS =====
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
