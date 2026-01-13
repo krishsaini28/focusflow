@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-// ✅ Step 1: Remove hardcoded localhost (deploy-safe)
+// Step 1: Remove hardcoded localhost (deploy-safe)
 const API_BASE =
   process.env.NEXT_PUBLIC_API_BASE?.replace(/\/$/, "") || "http://localhost:8000";
 
@@ -71,7 +71,7 @@ const INTENSITY_LABEL: Record<string, string> = {
 export default function PlanPage() {
   const isDev = process.env.NODE_ENV !== "production";
 
-  // ✅ Step 2: Raw JSON "dev only" (clean final UI)
+  // Step 2: Raw JSON "dev only" (clean final UI)
   const [showRaw, setShowRaw] = useState(false);
 
   // form / current plan controls
@@ -322,7 +322,7 @@ export default function PlanPage() {
     }
   }, [secondsLeft, sessionActive, currentBlockIndex, result]);
 
-  // ✅ Step 4: Plan progress (inside Session UI)
+  // Step 4: Plan progress (inside Session UI)
   const progress =
     result?.plan?.length ? Math.round((currentBlockIndex / result.plan.length) * 100) : 0;
 
@@ -337,7 +337,7 @@ export default function PlanPage() {
         <label>
           <div style={{ marginBottom: 6 }}>What are you working on?</div>
           <input
-            disabled={loading} // ✅ Step 3A: disable inputs while generating
+            disabled={loading} // Step 3A: disable inputs while generating
             value={task}
             onChange={(e) => setTask(e.target.value)}
             placeholder="e.g., Study CPS 305 (Heaps + Hashing)"
@@ -356,7 +356,7 @@ export default function PlanPage() {
         <label>
           <div style={{ marginBottom: 6 }}>Total minutes</div>
           <input
-            disabled={loading} // ✅ Step 3A
+            disabled={loading}
             type="number"
             value={totalMinutes}
             min={5}
@@ -376,7 +376,7 @@ export default function PlanPage() {
         <label>
           <div style={{ marginBottom: 6 }}>Mode</div>
           <select
-            disabled={loading} // ✅ Step 3A
+            disabled={loading} 
             value={mode}
             onChange={(e) => setMode(e.target.value as Mode)}
             style={{
@@ -398,7 +398,7 @@ export default function PlanPage() {
         <label>
           <div style={{ marginBottom: 6 }}>Intensity</div>
           <select
-            disabled={loading} // ✅ Step 3A
+            disabled={loading} 
             value={intensity}
             onChange={(e) => setIntensity(e.target.value as Intensity)}
             style={{
@@ -429,11 +429,11 @@ export default function PlanPage() {
             opacity: loading ? 0.8 : 1,
           }}
         >
-          {/* ✅ Step 3B: spinner feel */}
+          {/* spinner feel */}
           {loading ? "Generating plan..." : "Generate plan"}
         </button>
 
-        {/* ✅ Step 3C: empty state */}
+        {/* empty state */}
         {!result && !loading && !error && (
           <div style={{ marginTop: 8, padding: 12, border: "1px solid #333", borderRadius: 10 }}>
             <p style={{ margin: 0, fontWeight: 600 }}>No plan generated yet.</p>
@@ -529,7 +529,7 @@ export default function PlanPage() {
             Start session with this plan
           </button>
 
-          {/* ✅ Step 5: Quick Actions */}
+          {/* Step 5: Quick Actions */}
           <div style={{ marginTop: 12, display: "flex", gap: 10, flexWrap: "wrap" }}>
             <button
               onClick={copyPlan}
@@ -560,7 +560,7 @@ export default function PlanPage() {
             </button>
           </div>
 
-          {/* ✅ Step 2: Raw JSON toggle (dev-only) */}
+          {/* Raw JSON toggle (dev-only) */}
           {isDev && (
             <div style={{ marginTop: 16 }}>
               <button
@@ -603,7 +603,7 @@ export default function PlanPage() {
         <section style={{ marginTop: 24, padding: 16, borderRadius: 12, border: "1px solid #555" }}>
           <h2 style={{ fontSize: 18, fontWeight: 600, marginBottom: 8 }}>Session in progress</h2>
 
-          {/* ✅ Step 4: Progress bar */}
+          {/* Progress bar */}
           <div style={{ marginBottom: 12 }}>
             <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12, opacity: 0.8, marginBottom: 6 }}>
               <span>Progress</span>
