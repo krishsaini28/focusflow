@@ -6,9 +6,8 @@ FocusFlow is a full-stack AI productivity web app that generates structured focu
 ---
 
 ## 🚀 Demo
-> _Coming soon_
 
-- **Live App:** 
+https://github.com/user-attachments/assets/609fb893-3ea4-416e-9be3-4d1483a93549
 
 ---
 
