@@ -16,16 +16,13 @@ export default function Home() {
 
         const res = await fetch("http://localhost:8000/health", {
           method: "GET",
-          // optional: if your backend uses cookies/sessions
-          // credentials: "include",
+         
         });
 
         if (!res.ok) {
           throw new Error(`HTTP ${res.status} ${res.statusText}`);
         }
 
-        // Health endpoints often return JSON, but sometimes plain text.
-        // We'll handle both safely:
         const contentType = res.headers.get("content-type") || "";
         if (contentType.includes("application/json")) {
           const json = await res.json();
